@@ -8,8 +8,8 @@ namespace TintaExpressBackend.Models
         public int id { get; set; }
         public int id_materia { get; set; }
         public int id_proveedor { get; set; }
-        public float costo { get; set; }
-        public float cantidad_lote { get; set; }
+        public double costo { get; set; }
+        public double cantidad_lote { get; set; }
 
     }
 }

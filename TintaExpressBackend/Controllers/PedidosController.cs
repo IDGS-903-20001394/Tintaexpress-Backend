@@ -26,7 +26,7 @@ namespace TintaExpressBackend.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet]
+        [HttpGet("{idUsuario}")]
         public ActionResult GetFromUser(int idUsuario)
         {
             try

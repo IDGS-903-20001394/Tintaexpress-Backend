@@ -44,20 +44,27 @@ namespace TintaExpressBackend.Controllers
         }
 
         [HttpPost("Login")]
-        public ActionResult Login([FromForm] string email, string? pass)
+        public ActionResult Login([FromBody] string email, string pass)
         {
             try
             {
-                var usuario = _context.usuario.SingleOrDefault(u => u.email == email);
-                if (usuario == null)
+                var usuario = _context.usuario.Single(x => x.email == email);
+                if (usuario != null)
                 {
-                    return NotFound();
+                    if(usuario.password == pass)
+                    {
+                        return Ok(usuario);
+                    }
+                    else
+                    {
+                       return Unauthorized("Contraseña incorrecta");
+                    }
                 }
-                if (usuario.password != pass)
+                else
                 {
-                    return Unauthorized("Contraseña incorrecta");
+                    return Unauthorized("Usuario no encontrado");
                 }
-                return Ok(usuario);
+
             }
             catch (Exception ex)
             {

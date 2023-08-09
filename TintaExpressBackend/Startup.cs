@@ -20,6 +20,15 @@ namespace TintaExpressBackend
                 {
                     builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
                 });
+
+            options.AddPolicy("AllowFlutterApp",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+
             });
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
@@ -28,7 +37,14 @@ namespace TintaExpressBackend
         }
         public void Configure(IApplicationBuilder app, IHostApplicationLifetime lifetime)
         {
+            app.UseRouting(); // Agregar UseRouting antes de UseEndpoints
 
+            app.UseCors("AllowFlutterApp");
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
      }
 }

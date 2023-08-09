@@ -64,3 +64,4 @@ C:\Users\Usuario\Desktop\Universidad\Ingenieria\9°\Desarrollo Web Integral\Proy
 C:\Users\Usuario\Desktop\Universidad\Ingenieria\9°\Desarrollo Web Integral\Proyectos\TintaExpressBackend\TintaExpressBackend\obj\Debug\net6.0\TintaExpressBackend.pdb
 C:\Users\Usuario\Desktop\Universidad\Ingenieria\9°\Desarrollo Web Integral\Proyectos\TintaExpressBackend\TintaExpressBackend\obj\Debug\net6.0\TintaExpressBackend.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Universidad\Ingenieria\9°\Desarrollo Web Integral\Proyectos\TintaExpressBackend\TintaExpressBackend\obj\Debug\net6.0\ref\TintaExpressBackend.dll
+C:\Users\Usuario\Desktop\Universidad\Ingenieria\9°\Desarrollo Web Integral\Proyectos\TintaExpressBackend\TintaExpressBackend\bin\Debug\net6.0\System.Web.Cors.dll

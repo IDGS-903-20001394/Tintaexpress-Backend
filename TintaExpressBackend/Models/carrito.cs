@@ -9,7 +9,7 @@ namespace TintaExpressBackend.Models
         public int id_producto { get; set; }
         public int id_usuario { get; set; }
         public int cantidad { get; set; }
-        public float total { get; set; }
+        public double total { get; set; }
         public string? imagen { get; set; }
     }
 }
