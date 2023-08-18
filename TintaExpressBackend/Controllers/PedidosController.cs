@@ -72,6 +72,30 @@ namespace TintaExpressBackend.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("AllprodsPed")]
+        public ActionResult GetAllProdsPed(int idProd)
+        {
+            try
+            {
+                return Ok(_context.producto_pedido.ToList());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("prodPed/{idProd}")]
+        public ActionResult GetProdsPed(int idProd)
+        {
+            try
+            {
+                return Ok(_context.producto_pedido);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPut("{id}")]
         public ActionResult updateEstatus(int id)

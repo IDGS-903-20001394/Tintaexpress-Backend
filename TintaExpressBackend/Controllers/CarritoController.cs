@@ -45,7 +45,8 @@ namespace TintaExpressBackend.Controllers
         public ActionResult Post([FromBody] carrito cart)
         {
             try
-            {
+            {   
+                Console.WriteLine(cart.id_producto);
                 _context.carrito.Add(cart);
                 _context.SaveChanges();
                 return Ok();
@@ -60,17 +61,17 @@ namespace TintaExpressBackend.Controllers
         public ActionResult Remove(int id)
         {
             try
-            {
+            {   
                 var cart = _context.carrito.FirstOrDefault(x => x.id == id);
                 if (cart != null)
                 {
                     _context.carrito.Remove(cart);
                     _context.SaveChanges();
-                    return Ok(id);
+                    return Ok();
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest("No se encontro el item");
                 }
             }
             catch (Exception ex)

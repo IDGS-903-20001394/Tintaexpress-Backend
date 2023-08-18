@@ -10,8 +10,8 @@ namespace TintaExpressBackend.Models
         public int id_materia { get; set; }
         public double cantidad { get; set; }
         public double costoTotal { get; set; }
-        public DateTime fechaPedido { get; set; }
-        public DateTime fechaEntrega { get; set; }
+        public String? fechaPedido { get; set; }
+        public String? fechaEntrega { get; set; }
         public string estatus { get; set; }
     }
 }

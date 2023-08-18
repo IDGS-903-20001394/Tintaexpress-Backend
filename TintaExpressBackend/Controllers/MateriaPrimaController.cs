@@ -117,16 +117,12 @@ namespace TintaExpressBackend.Controllers
         }
 
         [HttpPost("asignMatProv")]
-        public ActionResult<materia_proveedor> AsignMateriaProveedor([FromQuery] int id_Prov, int id_Mat, float costo, float cantLote)
+        public ActionResult<materia_proveedor> AsignMateriaProveedor([FromBody] materia_proveedor matProv)
         {
             try
             {
-                materia_proveedor matProv = new materia_proveedor();
-                matProv.id_proveedor = id_Prov;
-                matProv.id_materia = id_Mat;
-                matProv.costo = costo;
-                matProv.cantidad_lote = cantLote;
-
+                _context.materia_proveedor.Add(matProv);
+                _context.SaveChanges();
                 return Ok(matProv);
 
             }
@@ -161,6 +157,21 @@ namespace TintaExpressBackend.Controllers
             try
             {
                 var matProv = _context.materia_proveedor.Where(materia_proveedor => materia_proveedor.id_proveedor == id_Prov).ToList();
+
+                return Ok(matProv);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("AllMatProv")]
+        public ActionResult GetAllMatProv()
+        {
+            try
+            {
+                var matProv = _context.materia_proveedor.ToList();
 
                 return Ok(matProv);
             }

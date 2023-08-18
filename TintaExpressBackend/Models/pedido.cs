@@ -7,7 +7,7 @@ namespace TintaExpressBackend.Models
         [Key]
         public int id { get; set; }
         public int id_usuario { get; set; }
-        public DateTime fecha { get; set; }
+        public string? fecha { get; set; }
         public string? direccion { get; set; }
         public double total { get; set; }
         public string? estatus { get; set; }

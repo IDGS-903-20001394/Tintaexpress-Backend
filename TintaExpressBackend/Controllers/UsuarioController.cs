@@ -48,23 +48,25 @@ namespace TintaExpressBackend.Controllers
         {
             try
             {
-                var usuario = _context.usuario.Single(x => x.email == email);
-                if (usuario != null)
+                var usr = _context.usuario.FirstOrDefault(u => u.email == email && u.password == pass);
+                if (usr == null)
                 {
-                    if(usuario.password == pass)
-                    {
-                        return Ok(usuario);
-                    }
-                    else
-                    {
-                       return Unauthorized("Contraseña incorrecta");
-                    }
+                    return BadRequest("Usuario o contraseña incorrectos");
                 }
-                else
-                {
-                    return Unauthorized("Usuario no encontrado");
-                }
+                return Ok(usr);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
+        [HttpGet("Roles")]
+        public ActionResult GetRoles()
+        {
+            try
+            {
+                return Ok(_context.rol.ToList());
             }
             catch (Exception ex)
             {
